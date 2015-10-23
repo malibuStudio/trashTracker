@@ -10,12 +10,13 @@
   width: 100vw;
   height: 100vh;
 
-  overflow-x: scroll;
+  overflow: visible;
 }
 
 // .page-ui-components
 // Wrap each page to viewport and enable scroll
 .page-ui-components {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -56,12 +57,22 @@
 // .page-wrapper
 // First main page
 .page-main {
+  position: absolute;
+  top: 0;
+  left: 0;
+
   width: 100vw;
   height: 100vh;
+  overflow-y: scroll;
 }
 
-// .page-history
-// History
-.page-history {
+// .page-comments
+// Comments
+.page-comments {
+  position: absolute;
+  top: 100vh;
+  left: 0;
 
+  width: 100vw;
+  height: auto;
 }

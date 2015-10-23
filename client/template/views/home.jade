@@ -27,6 +27,7 @@ template(name="home")
           | 아직 회원이 아니신가요?
 
 
+
   +HammerTouchArea(gestureMap=gestures)
     .page-container
       // UI Components (Menu)
@@ -34,17 +35,38 @@ template(name="home")
         button.upload-photo +
       // Each Page
       .page-wrapper.active
-        .page-main
-          .img-wrapper
-            img(src="http://cfs14.tistory.com/image/33/tistory/2008/10/27/13/46/4905479523678")
-        .page-history
+          //- .page-inner
+          .page-main
+            .img-wrapper
+              img(src="http://cfs14.tistory.com/image/33/tistory/2008/10/27/13/46/4905479523678")
+          .page-comments
+            .img-wrapper
+              img(src="http://cfs14.tistory.com/image/33/tistory/2008/10/27/13/46/4905479523678")
+            .img-wrapper
+              img(src="http://cfs14.tistory.com/image/33/tistory/2008/10/27/13/46/4905479523678")
 
       // Each Page
-      .page-wrapper
-        .page-main
-          .img-wrapper
-            img(src="http://www.mediajeju.com/news/photo/201010/101069_75370_3453.jpg")
-        .page-history
+      .page-wrapper.active
+          //- .page-inner
+          .page-main
+            .img-wrapper
+              img(src="http://www.mediajeju.com/news/photo/201010/101069_75370_3453.jpg")
+          .page-comments
+            .img-wrapper
+              img(src="http://cfs14.tistory.com/image/33/tistory/2008/10/27/13/46/4905479523678")
+            .img-wrapper
+              img(src="http://cfs14.tistory.com/image/33/tistory/2008/10/27/13/46/4905479523678")
+
+      //- // Each Page
+      //- .page-wrapper
+      //-   .page-main
+      //-     .img-wrapper
+      //-       img(src="http://www.mediajeju.com/news/photo/201010/101069_75370_3453.jpg")
+      //-   .page-comments
+      //-     .img-wrapper
+      //-       img(src="http://cfs14.tistory.com/image/33/tistory/2008/10/27/13/46/4905479523678")
+      //-     .img-wrapper
+      //-       img(src="http://cfs14.tistory.com/image/33/tistory/2008/10/27/13/46/4905479523678")
     //- #upload-photo
     //-   input(type="file")
     //-   button.btn Upload

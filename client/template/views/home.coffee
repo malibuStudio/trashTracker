@@ -4,6 +4,37 @@ Template.home.onCreated ->
     y: 0
 
 Template.home.helpers
+  "gestures":
+    'swiperight .page-container': (e, tmpl)->
+      e.preventDefault()
+      tmpl.view.template.swipeH -1
+    'swipeleft .page-container': (e, tmpl)->
+      e.preventDefault()
+      tmpl.view.template.swipeH 1
+
+
+Template.home.swipeH = (d)->
+  activePage = document.querySelector('.page-wrapper.active')
+  nextPage = activePage.nextElementSibling
+
+  if not nextPage
+    nextPage = document.querySelector('.page-wrapper')
+
+  console.log 'swiped'
+
+  TweenMax.fromTo nextPage, 0.5,
+    x: d * nextPage.offsetWidth
+    opacity: 0
+    zIndex: 99
+  ,
+    x: 0
+    opacity: 1
+    clearProps: 'all'
+    ease: Power2.easeIn
+    onComplete: ->
+      console.log 'swiped page'
+      activePage.classList.remove 'active'
+      nextPage.classList.add 'active'
 
 Template.home.events
   'touchend .goto-register': (e)->
@@ -98,8 +129,6 @@ Template.home.events
 
 
   'touchstart .page-container': (e)->
-    e.preventDefault()
-
     firstTouch = e.originalEvent.touches[0]
 
     Template.instance().touchstart =
@@ -108,8 +137,6 @@ Template.home.events
 
     # console.log Template.instance().touchstart
   'touchend .page-container': (e)->
-    e.preventDefault()
-
     lastTouch = e.originalEvent.changedTouches[e.originalEvent.changedTouches.length-1]
 
     touchend =
@@ -139,33 +166,8 @@ Template.home.events
           onComplete: ->
             uiWrapper.classList.add 'active'
             uiWrapper.style.pointerEvents = 'auto'
-    else
-      if (touchstart.x - touchend.x) > 0
-        d = 1
-      if (touchstart.x - touchend.x) < 0
-        d = -1
 
-      activePage = document.querySelector('.page-wrapper.active')
-      nextPage = activePage.nextElementSibling
 
-      if not nextPage
-        nextPage = document.querySelector('.page-wrapper')
-
-      console.log 'swiped'
-
-      TweenMax.fromTo nextPage, 0.5,
-        x: d * nextPage.offsetWidth
-        opacity: 0
-        zIndex: 99
-      ,
-        x: 0
-        opacity: 1
-        clearProps: 'all'
-        ease: Power2.easeIn
-        onComplete: ->
-          console.log 'swiped page'
-          activePage.classList.remove 'active'
-          nextPage.classList.add 'active'
 
 
 
