@@ -1,0 +1,156 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+//
+// BUTTONS
+//
+/////////////////////////////////////////////////////////////////////////////////
+@import 'buttons-mixin.import.less';
+
+
+
+// ============================================================================
+// Init Buttons
+// ============================================================================
+button,
+button.btn,
+a.btn,
+input.btn {
+  .button-create(@btn-color-dark, @btn-base-background, @btn-base-border);
+  &.borderless {
+    border: 0;
+  }
+  transition: @btn-transition;
+}
+
+
+// Black Button
+// ------------------------------------
+.btn-black,
+.btn.btn-black {
+  .button-create(@white, @black, @black);
+}
+
+// Brand Primary Button
+// ------------------------------------
+.btn-primary,
+.btn.btn-primary {
+  .button-create(@btn-color-light, @brand-primary, darken(@brand-primary, 5%));
+}
+
+// ============================================================================
+// Init Buttons Sizes
+// ============================================================================
+.btn-xs,
+.btn.btn-xs {
+  font-size: 0.8rem;
+}
+
+.btn-sm,
+.btn.btn-sm {
+  font-size: 0.9rem;
+}
+
+.btn-md,
+.btn.btn-md {
+  font-size: 1rem;
+}
+
+.btn-lg,
+.btn.btn-lg {
+  font-size: 1.25rem;
+}
+
+.btn-xl,
+.btn.btn-xl {
+  font-size: 1.5rem;
+}
+
+// ============================================================================
+// .btn.loading-bounce
+// ============================================================================
+@btn-loader-size: 1em;
+
+.btn.loading {
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.btn.loading {
+  position: relative;
+  // padding-left: @pad-e-md*2;
+  color: transparent !important; // Hide Text While Load;
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    margin-top: -(@btn-loader-size/2);
+    margin-left: -(@btn-loader-size/2);
+    display: block;
+
+    content: '';
+
+    width: @btn-loader-size;
+    height: @btn-loader-size;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: #fff transparent transparent;
+    border-radius: 100%;
+
+    box-shadow: 0 0 0 1px transparent;
+
+    opacity: 1;
+
+    animation: spinner-rotate .6s linear infinite;
+  }
+}
+@keyframes spinner-rotate {
+  0% {
+    transform: rotateZ(-360deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+.btn.loading.bounce {
+  span,
+  span.btn-text {
+    position: relative;
+  }
+  position: relative;
+  // padding-left: @pad-e-md*2;
+  &:after,
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    margin-top: -(@btn-loader-size/2);
+    margin-left: -(@btn-loader-size/2);
+
+    content: '';
+    width: 1em;
+    height: 1em;
+    background: RGBA(255, 255, 255, 0.6);
+    opacity: 1;
+
+    border: 0;
+    border-radius: 100%;
+
+    animation: spinner-bounce 2.0s infinite ease-in-out;
+  }
+  &:before {
+  }
+  &:after {
+    animation-delay: -1.0s;
+  }
+}
+@keyframes spinner-bounce {
+  0%, 100% {
+    transform: scale(0);
+  } 50% {
+    transform: scale(3);
+  }
+}

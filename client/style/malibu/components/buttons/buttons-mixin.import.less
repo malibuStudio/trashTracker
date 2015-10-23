@@ -1,0 +1,70 @@
+
+// ============================================================================
+// .button-size()
+// set padding
+// ============================================================================
+.button-size (@vertical, @horizontal) {
+  padding: @vertical @horizontal;
+}
+
+// ============================================================================
+// .button-create()
+// button create
+// ============================================================================
+.button-create (@color, @background, @border) {
+  position: relative;
+
+  display: inline-block;
+  vertical-align: middle;
+
+  color: @color;
+
+  background: @background;
+
+  border-width: 1px;
+  border-style: solid;
+  border-color: @border;
+  border-radius: @btn-base-radius;
+
+  font-size: @global-font-size;
+  line-height: 1;
+  text-decoration: none; // For a.btn
+
+  user-select: none;
+
+  .button-size(@pad-e-sm, @pad-e-md);
+
+  &:hover,
+  &.hover {
+    color: @color;
+    background-color: darken(@background, 10%);
+        border-color: darken(@border, 15%);
+  }
+
+  &:active,
+  &.active {
+    color: @color;
+    background-color: darken(@background, 10%);
+        border-color: darken(@border, 15%);
+  }
+
+  &:focus,
+  &.focus {
+    color: @color;
+    background-color: darken(@background, 15%);
+        border-color: darken(@border, 20%);
+  }
+
+  &:disabled,
+  &[disabled],
+  &.disabled {
+
+  }
+
+  // For Loading Spinner Opacity Transition to take effect
+  &:after,
+  &:before {
+    opacity: 0;
+  }
+}
+

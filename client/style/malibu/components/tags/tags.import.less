@@ -1,0 +1,51 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+//
+// TAGS
+//
+/////////////////////////////////////////////////////////////////////////////////
+
+// ============================================================================
+// Tags Wrapper
+// ============================================================================
+.tags-wrapper {
+  flex: 1; // If parent is flex, strecth
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+// ============================================================================
+// Tags > Input
+// ============================================================================
+.tags-wrapper > input {
+  flex: 1;
+  margin-left: 0.15rem;
+  border: 0;
+  font-size: 0.8rem;
+}
+
+// ============================================================================
+// Tags Hidden Select
+// ============================================================================
+.tags-wrapper > select {
+  display: none;
+}
+
+// ============================================================================
+// Tags Container and Visual Tag
+// ============================================================================
+.tags-wrapper > .tags-container {
+  display: inline-block;
+}
+
+.tags-wrapper > .tags-container > span.tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: @pad-e-xs @pad-e-sm;
+  margin-left: 0.15rem;
+  border-radius: @radius-xs;
+  background: #DDD;
+  user-select: none;
+  cursor: pointer;
+}

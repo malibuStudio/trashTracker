@@ -1,0 +1,96 @@
+# =============================================================================
+# Pacakges Used by me
+# =============================================================================
+
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-base               # Packages every Meteor app needs to have
+mobile-experience         # Packages for a great mobile UX
+mongo                     # The database Meteor supports right now
+blaze-html-templates      # Compile .html files into Meteor Blaze views
+session                   # Client-side reactive dictionary for your app
+jquery                    # Helpful client-side library
+tracker                   # Meteor's client-side reactive programming library
+
+standard-minifiers        # JS/CSS minifiers run for production mode
+es5-shim                  # ECMAScript 5 compatibility for older browsers.
+ecmascript                # Enable ECMAScript2015+ syntax in app code
+
+autopublish               # Publish all data to the clients (for prototyping)
+insecure                  # Allow all DB writes from clients (for prototyping)
+
+random                    # Random
+check                     # Check
+
+# =============================================================================
+# Essential packages
+# =============================================================================
+
+mquandalle:jade           # Meteor JADE
+coffeescript              # Coffeescript
+underscore                # Underscore
+flemay:less-autoprefixer  # LESS with autoprefixer
+infinitedg:gsap           # Greensock GSAP Animation
+reactive-var              # Reactive Variables
+
+
+# =============================================================================
+# Iron Router
+# =============================================================================
+
+iron:router               # Iron Router
+zimme:active-route        # Active Route Helper Package
+
+
+# =============================================================================
+# Accounts Packages
+# =============================================================================
+
+accounts-base             # Accounts package - base
+accounts-password         # Accounts package - password
+alanning:roles            # Roles
+
+
+# =============================================================================
+# Device.js
+# =============================================================================
+
+bigu:device
+
+
+# =============================================================================
+# Icons
+# =============================================================================
+
+semantic:ui-icon          # Semantic UI Icons
+
+
+
+# =============================================================================
+# Date Pacakges
+# =============================================================================
+
+momentjs:moment           # Moment.js
+lbee:moment-helpers       # Moment.js Helpers
+
+
+# =============================================================================
+# Collection Packages
+# =============================================================================
+
+aldeed:collection2        # Collection2
+
+
+# =============================================================================
+# Dev Tool Packages (Instable after 1.2)
+# =============================================================================
+# msavin:jetsetter          # View/manipulate sessions
+# msavin:mongol             # View/manipulate subscriptions
+                          # (ctrl+m) to activate
+
+
+blueimp:javascript-load-image

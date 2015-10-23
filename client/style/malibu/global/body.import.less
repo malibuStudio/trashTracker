@@ -1,0 +1,29 @@
+// ============================================================================
+// HTML, BODY
+// ============================================================================
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-size: @global-font-size;
+  font-family: @global-font-family;
+  -webkit-overflow-scrolling: touch; // Bring Back Momentum Scrolling
+}
+
+body {
+  position: relative;
+}
+
+// ============================================================================
+// BOX SIZING
+// ============================================================================
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
