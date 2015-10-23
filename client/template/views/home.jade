@@ -1,83 +1,20 @@
 template(name="home")
+  +HammerTouchArea(gestureMap=gestures)
+    .page-container
+      // Each Page
+      .page-wrapper.active
+        .page-main
+          .img-wrapper
+            img(src="http://cfs14.tistory.com/image/33/tistory/2008/10/27/13/46/4905479523678")
+        .page-history
 
-  #upload-photo
-    input(type="file")
-    button.btn Upload
+      // Each Page
+      .page-wrapper
+        .page-main
+          .img-wrapper
+            img(src="http://www.mediajeju.com/news/photo/201010/101069_75370_3453.jpg")
+        .page-history
+    //- #upload-photo
+    //-   input(type="file")
+    //-   button.btn Upload
 
-
-
-  //- .modal.modal-shadow#modal-1
-  //-   .modal-header
-  //-     .close
-  //-       i.close.icon
-  //-     h1 I am a Modal
-  //-   .modal-body
-  //-     h4 It's just great
-  //-     P Malibu Modal
-  //-   .modal-footer
-  //-     .pull-right
-  //-       button.close.btn-black Close
-
-  //- .group
-  //-   .malibu-tags
-  //-     label TAGS
-  //-     #tags(data-action="tags")
-
-
-  //- .group
-  //-   h1 Modals!!
-  //-   button.btn.btn-primary.btn-xl(data-action="modal" data-target="modal-1" data-overlay="true")
-  //-     | Open Modal
-  //-   button.btn.open
-  //-     | Overlay False
-  //- .group
-  //-   h1 Buttons
-  //-   .group
-  //-     h2 Loading Buttons
-  //-     button.btn.btn-primary.btn-lg.borderless(data-action="load")
-  //-       | Spinner
-  //-     button.btn.btn-primary.btn-lg.borderless.bounce(data-action="load")
-  //-       | Bounce
-
-  //-   .group
-  //-     h2 .btn
-  //-     button(data-feedback="true") button
-  //-     button.btn button
-  //-     a.btn(href="") a.btn
-
-  //-   .group
-  //-     h2 .btn-primary
-  //-     button.btn-primary button
-  //-     button.btn.btn-primary button
-  //-     a.btn.btn-primary(href="") a.btn
-
-  //-   .group
-  //-     h2 .btn.btn-xs
-  //-     button.btn-xs button
-  //-     button.btn.btn-xs button
-  //-     a.btn.btn-xs(href="") a.btn
-
-  //-   .group
-  //-     h2 .btn.btn-sm
-  //-     button.btn-sm button
-  //-     button.btn.btn-sm button
-  //-     a.btn.btn-sm(href="") a.btn
-
-
-  //-   .group
-  //-     h2 .btn.btn-md
-  //-     button.btn-md button
-  //-     button.btn.btn-md button
-  //-     a.btn.btn-md(href="") a.btn
-
-  //-   .group
-  //-     h2 .btn.btn-lg
-  //-     button.btn-lg button
-  //-     button.btn.btn-lg button
-  //-     a.btn.btn-lg(href="") a.btn
-
-  //-   .group
-  //-     h2 .btn.btn-xl
-  //-     button.btn-xl button
-  //-     button.btn.btn-xl button
-  //-     a.btn.btn-xl(href="") a.btn

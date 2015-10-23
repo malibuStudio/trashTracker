@@ -1,0 +1,47 @@
+#viewport {
+  background: black;
+}
+
+// .page-wrapper
+// Hoziontal Wrapper
+.page-container {
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow-x: scroll;
+}
+
+// .page-wrapper
+// Wrap each page to viewport and enable scroll
+.page-wrapper {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow-y: scroll;
+
+  background: black;
+  opacity: 0;
+  &.active {
+    opacity: 1;
+  }
+}
+
+// .page-wrapper
+// First main page
+.page-main {
+  width: 100vw;
+  height: 100vh;
+}
+
+// .page-history
+// History
+.page-history {
+
+}
