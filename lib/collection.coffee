@@ -45,7 +45,7 @@
     optional: true
   "comments.$.description":
     type: String
-    max: 2000
+    max: 200
     optional: true
   "comments.$.imageUrl":
     type: String
