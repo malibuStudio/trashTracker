@@ -40,9 +40,12 @@ Template.page.swipeH = (d)->
     clearProps: 'all'
     ease: Power2.easeIn
     onComplete: ->
-      console.log 'swiped page'
-      activePage.classList.remove 'active'
-      nextPage.classList.add 'active'
+      activePage.style.zIndex = '1'
+      nextPage.style.zIndex = '99'
+    # onComplete: ->
+    #   console.log 'swiped page'
+    #   activePage.classList.remove 'active'
+    #   nextPage.classList.add 'active'
 
 Template.page.events
   # ========================================================
