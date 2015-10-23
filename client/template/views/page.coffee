@@ -1,4 +1,5 @@
 Template.page.onCreated ->
+  @pageIndex = 0
   navigator.geolocation.getCurrentPosition (loc)=>
     @locationSubs and @locationSubs.stop()
     @locationSubs = @subscribe 'getTrashLocations', [
@@ -15,14 +16,17 @@ Template.page.helpers
   "gestures":
     'swiperight .page-container': (e, tmpl)->
       e.preventDefault()
-      tmpl.view.template.swipeH -1
+      tmpl.view.template.swipeH -1, tmpl
     'swipeleft .page-container': (e, tmpl)->
       e.preventDefault()
-      tmpl.view.template.swipeH 1
+      tmpl.view.template.swipeH 1, tmpl
 
 
-Template.page.swipeH = (d)->
-  activePage = document.querySelector('.page-wrapper.active')
+Template.page.swipeH = (d, tmpl)->
+  pageWrapper = document.querySelectorAll('.page-wrapper')
+  activePage = pageWrapper[tmpl.pageIndex]
+  tmpl.pageIndex = ((tmpl.pageIndex + d) < 0 and pageWrapper.length-1) or ((tmpl.pageIndex + d) > pageWrapper.length-1 and 0) or tmpl.pageIndex + d
+
   nextPage = activePage.nextElementSibling
 
   if not nextPage

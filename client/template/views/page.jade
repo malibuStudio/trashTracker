@@ -8,20 +8,8 @@ template(name="page")
             input(type="file")
           button.btn Upload
 
-      .page-wrapper.active
-          //- .page-inner
-          .page-main
-            .img-wrapper
-              img(src="http://cfs14.tistory.com/image/33/tistory/2008/10/27/13/46/4905479523678")
-          .page-comments
-            h1  this is comment
-            h1  this is comment
-            h1  this is comment
-            h1  this is comment
-      // Each Page
-
       +each Trashes
-        .page-wrapper(class="{{isActive}}")
+        .page-wrapper
           //- .page-inner
           .page-main
             .img-wrapper
