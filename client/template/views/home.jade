@@ -26,11 +26,9 @@ template(name="home")
         a.goto-register(href="")
           | 아직 회원이 아니신가요?
 
-  .upload-container
-    .cropper-outer
-      img.crop-target
 
-
+  // CROPPER
+  +upload
 
   +HammerTouchArea(gestureMap=gestures)
     .page-container
