@@ -1,6 +1,6 @@
 Meteor.startup ->
-  Trashes.remove {}
-  Trashes._ensureIndex
-    "geometry": "2dsphere"
-  
-  setFixture()
+#  Trashes.remove {}
+  unless Trashes.find().count()
+    Trashes._ensureIndex
+      "geometry": "2dsphere"
+    setFixture()
