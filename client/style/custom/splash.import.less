@@ -1,0 +1,52 @@
+.splash-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  background: @brand-primary;
+}
+
+.splash-container .splash-inner {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  .translate(-50%, -50%);
+}
+
+.splash-container img.logo {
+  width: 100%;
+}
+
+.splash-container img.halbe {
+  display: block;
+  width: 80vmin;
+  height: auto;
+
+  margin-top: -4rem;
+}
+
+.splash-container img.bullet {
+  position: absolute;
+
+  display: block;
+  opacity: 0;
+
+  width: 20vmin;
+  height: 20vmin;
+
+  margin-left: -10vmin;
+  margin-top: -10vmin;
+
+  // animation: bullet-rotate .3s linear infinite;
+}
+// @keyframes bullet-rotate {
+//   0% {
+//     transform: scale(4) rotateZ(-360deg);
+//   }
+//   100% {
+//     transform: scale(1) rotateZ(0deg);
+//   }
+// }
