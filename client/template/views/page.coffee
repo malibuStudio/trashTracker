@@ -10,6 +10,8 @@ Template.page.onCreated ->
     y: 0
 
 Template.page.helpers
+  "Trashes": ->
+    Trashes.find()
   "gestures":
     'swiperight .page-container': (e, tmpl)->
       e.preventDefault()
