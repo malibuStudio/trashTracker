@@ -1,5 +1,5 @@
 Template.page.onCreated ->
-  @pageIndex = 0
+  @pageIndex = new ReactiveVar 1
   navigator.geolocation.getCurrentPosition (loc)=>
     @locationSubs and @locationSubs.stop()
     @locationSubs = @subscribe 'getTrashLocations', [
@@ -12,7 +12,13 @@ Template.page.onCreated ->
 
 Template.page.helpers
   "Trashes": ->
-    Trashes.find()
+    t = Template.instance()
+    idx = t.pageIndex.get()
+    Trashes.find {},
+      skip: idx - 1
+      limit: idx > 0 and 3 or 2
+      sort:
+        createdAt: -1
   "gestures":
     'swiperight .page-container': (e, tmpl)->
       e.preventDefault()
@@ -23,33 +29,39 @@ Template.page.helpers
 
 
 Template.page.swipeH = (d, tmpl)->
-  pageWrapper = document.querySelectorAll('.page-wrapper')
-  activePage = pageWrapper[tmpl.pageIndex]
-  tmpl.pageIndex = ((tmpl.pageIndex + d) < 0 and pageWrapper.length-1) or ((tmpl.pageIndex + d) > pageWrapper.length-1 and 0) or tmpl.pageIndex + d
+  console.log 'd :', d
+  # From Right to Left  <-
+  # d = 1
 
-  nextPage = pageWrapper[tmpl.pageIndex]
+  # From Left to Right  <-
+  # d = -1
 
-  # if not nextPage
-  #   nextPage = document.querySelector('.page-wrapper')
+  idx = tmpl.pageIndex.get()
 
-  console.log 'swiped'
 
-  TweenMax.fromTo nextPage, 0.5,
-    x: d * nextPage.offsetWidth
-    opacity: 0
-    zIndex: 99
-  ,
-    x: 0
-    opacity: 1
-    clearProps: 'all'
-    ease: Power2.easeIn
-    onComplete: ->
-      activePage.style.zIndex = '1'
-      nextPage.style.zIndex = '99'
-    # onComplete: ->
-    #   console.log 'swiped page'
-    #   activePage.classList.remove 'active'
-    #   nextPage.classList.add 'active'
+  console.log 'before Swipe: ', idx
+
+
+  # if scrollabe
+  if Trashes.find().count() > 1
+    wrapper = document.querySelector('.page-wrapper')
+    currentItem = document.querySelector('.page-item')
+
+    TweenMax.fromTo wrapper, 0.5,
+      x: -currentItem.offsetWidth
+    ,
+      x: -d * currentItem.offsetWidth - currentItem.offsetWidth
+      clearProps: "all"
+      ease: Power2.easeIn
+      onComplete: ->
+        # 재호님에게
+        # NO PROBLEM:
+        # 3->2, 2->1, 1->2, 2->3
+        # PROBLEMS:
+        # currentItem이 1일때 Right로 갈때 문제가 있음 (Swipe Right to Left) (1은 존재하지만 화면 왼쪽 밖으로 빠짐 )
+        # 3->4로 갈 때 모든 섭스가 사라짐 (.page-item의 존재가 사라짐)
+        tmpl.pageIndex.set idx + d
+        console.log 'after Swipe: ', idx
 
 Template.page.events
   # ========================================================
@@ -75,8 +87,9 @@ Template.page.events
 
     uiWrapper = document.getElementById('ui-wrapper')
 
-    console.log 'touchstart', touchstart
-    console.log 'touchend', touchend
+    # # Show touchstart and touchend obj (x, y)
+    # console.log 'touchstart', touchstart
+    # console.log 'touchend', touchend
 
     if _.isEqual(touchstart, touchend)
       console.log 'tap not move'

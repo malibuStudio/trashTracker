@@ -10,7 +10,7 @@
   width: 100vw;
   height: 100vh;
 
-  overflow: visible;
+  overflow: hidden;
 }
 
 // .page-ui-components
@@ -37,19 +37,45 @@
 // Wrap each page to viewport and enable vertical scroll
 .page-wrapper {
   position: absolute;
-
   top: 0;
   left: 0;
+  // left: -100vw;
 
-  width: 100vw;
+  .translate(-100vw, 0);
+
+  width: 300vw;
   height: 100vh;
 
-  overflow-y: scroll;
+  white-space: nowrap;
+  display: flex;
+  .page-item {
+    position: absolute;
+    top: 0;
 
-  background: black;
-  opacity: 1;
-  z-index: 1;
+    width: 100vw;
+    height: 100vh;
+
+    overflow-y: scroll;
+
+    background: black;
+    opacity: 1;
+
+    z-index: 99;
+    &:nth-child(1) {
+      left: 0;
+      background: red;
+    }
+    &:nth-child(2) {
+      left: 100vw;
+      background: darken(red, 10%);
+    }
+    &:nth-child(3) {
+      left: 200vw;
+      background: darken(red, 20%);
+    }
+  }
 }
+
 
 // .page-wrapper
 // First main page
