@@ -1,6 +1,7 @@
 Template.home.onCreated ->
   navigator.geolocation.getCurrentPosition (loc)=>
-    @subscribe 'getTrashLocations', [
+    @locationSubs and @locationSubs.stop()
+    @locationSubs = @subscribe 'getTrashLocations', [
       loc.coords.longitude,
       loc.coords.latitude
     ]
