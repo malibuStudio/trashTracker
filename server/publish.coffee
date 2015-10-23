@@ -7,4 +7,4 @@ Meteor.publish 'getTrashLocations', (coordinates)->
         $geometry:
           type: "Point"
           "coordinates": coordinates
-        $maxDistance: 1000
+        $maxDistance: 100000
