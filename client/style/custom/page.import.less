@@ -36,24 +36,26 @@
 // .page-wrapper
 // Wrap each page to viewport and enable vertical scroll
 .page-wrapper {
-  position: absolute;
+  left: -100vw;
+  width: 300vw;
+  white-space: nowrap;
+  display: flex;
+  .page-item {
+    position: absolute;
 
-  top: 0;
-  left: 0;
+    top: 0;
+    left: 0;
 
-  width: 100vw;
-  height: 100vh;
+    width: 100vw;
+    height: 100vh;
 
-  overflow-y: scroll;
+    overflow-y: scroll;
 
-  background: black;
-  opacity: 0;
-  z-index: 1;
-  &.active {
+    background: black;
     opacity: 1;
-    z-index: 3;
   }
 }
+
 
 // .page-wrapper
 // First main page

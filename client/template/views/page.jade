@@ -8,14 +8,15 @@ template(name="page")
             input(type="file")
           button.btn Upload
 
-      +each Trashes
-        .page-wrapper
-          //- .page-inner
-          .page-main
-            .img-wrapper
-              img(src="{{imageUrl}}")
-          .page-comments
-            h1  this is comment
-            h1  this is comment
-            h1  this is comment
-            h1  this is comment
+      .page-wrapper
+        +each Trashes
+          .page-item
+            //- .page-inner
+            .page-main
+              .img-wrapper
+                img(src="{{imageUrl}}")
+            .page-comments
+              h1  this is comment
+              h1  this is comment
+              h1  this is comment
+              h1  this is comment

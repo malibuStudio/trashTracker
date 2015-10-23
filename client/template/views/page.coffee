@@ -1,5 +1,5 @@
 Template.page.onCreated ->
-  @pageIndex = 0
+  @pageIndex = new ReactiveVar 1
   navigator.geolocation.getCurrentPosition (loc)=>
     @locationSubs and @locationSubs.stop()
     @locationSubs = @subscribe 'getTrashLocations', [
@@ -12,7 +12,13 @@ Template.page.onCreated ->
 
 Template.page.helpers
   "Trashes": ->
-    Trashes.find()
+    t = Template.instance()
+    idx = t.pageIndex.get()
+    Trashes.find {},
+      skip: idx - 1
+      limit: idx > 0 and 3 or 2
+      sort:
+        createdAt: -1
   "gestures":
     'swiperight .page-container': (e, tmpl)->
       e.preventDefault()
@@ -23,31 +29,23 @@ Template.page.helpers
 
 
 Template.page.swipeH = (d, tmpl)->
-  pageWrapper = document.querySelectorAll('.page-wrapper')
-  activePage = pageWrapper[tmpl.pageIndex]
-  tmpl.pageIndex = ((tmpl.pageIndex + d) < 0 and pageWrapper.length-1) or ((tmpl.pageIndex + d) > pageWrapper.length-1 and 0) or tmpl.pageIndex + d
+  console.log d
 
-  nextPage = activePage.nextElementSibling
+  idx = tmpl.pageIndex.get()
 
-  if not nextPage
-    nextPage = document.querySelector('.page-wrapper')
+  # if scrollabe
+  if Trashes.find().count()>1
+    wrapper = document.querySelector('.page-wrapper')
+    currentItem = document.querySelector('.page-item')
 
-  console.log 'swiped'
-
-  TweenMax.fromTo nextPage, 0.5,
-    x: d * nextPage.offsetWidth
-    opacity: 0
-    zIndex: 99
-  ,
-    x: 0
-    opacity: 1
-    clearProps: 'all'
-    ease: Power2.easeIn
-    onComplete: ->
-      console.log 'swiped page'
-      activePage.classList.remove 'active'
-      nextPage.classList.add 'active'
-
+    TweenMax.fromTo wrapper, 0.5,
+      x: -currentItem.offsetWidth
+    ,
+      x: (-d * currentItem.offsetWidth) - currentItem.offsetWidth
+      clearProps: "all"
+      ease: Power2.easeIn
+      onComplete: ->
+        tmpl.pageIndex.set idx+d
 Template.page.events
   # ========================================================
   # Events
