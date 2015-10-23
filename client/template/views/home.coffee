@@ -65,6 +65,7 @@ Template.home.events
     $('button.btn-register').addClass('loading')
     obj =
       username: $.trim($('[name=register-user]').val())
+      email: $.trim($('[name=register-email]').val())
       password: $.trim($('[name=register-password]').val())
 
     Accounts.createUser obj, (err, result) ->
