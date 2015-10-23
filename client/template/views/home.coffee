@@ -11,7 +11,7 @@ Template.home.events
     if not file
       return
     else
-      console.log file
+      console.log 'File: ', file
       # if file.size > 4194304
       #   return false
 
@@ -21,15 +21,19 @@ Template.home.events
           # Get the correct orientation setting from the EXIF Data
           if data.exif
               options.orientation = data.exif.get('Orientation')
-              console.log data.exif.map
+              if data.exif.map
+                console.log 'Exif.map: ',data.exif.map
+              else
+                console.log 'Location Data does not Exist'
+
           # Load the image from disk and inject it into the DOM with the correct orientation
-          loadImage file, ((canvas) ->
+          # loadImage file, ((canvas) ->
             # imgDataURL = canvas.toDataURL('img/jpg')
             # console.log(imgDataURL)
             # Session.set('currentImg', imgDataURL)
 
 
-            console.log 'Done!'
-          ), options
+            # console.log 'Done!'
+          # ), options
 
 Template.home.onRendered ->
