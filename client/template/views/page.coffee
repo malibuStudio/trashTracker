@@ -27,10 +27,10 @@ Template.page.swipeH = (d, tmpl)->
   activePage = pageWrapper[tmpl.pageIndex]
   tmpl.pageIndex = ((tmpl.pageIndex + d) < 0 and pageWrapper.length-1) or ((tmpl.pageIndex + d) > pageWrapper.length-1 and 0) or tmpl.pageIndex + d
 
-  nextPage = activePage.nextElementSibling
+  nextPage = pageWrapper[tmpl.pageIndex]
 
-  if not nextPage
-    nextPage = document.querySelector('.page-wrapper')
+  # if not nextPage
+  #   nextPage = document.querySelector('.page-wrapper')
 
   console.log 'swiped'
 
