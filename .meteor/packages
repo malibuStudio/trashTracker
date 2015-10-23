@@ -81,13 +81,23 @@ aldeed:collection2        # Collection2
 # msavin:mongol             # View/manipulate subscriptions
                           # (ctrl+m) to activate
 
+# =============================================================================
+# Image Packages
+# =============================================================================
 
-blueimp:javascript-load-image
-
+blueimp:javascript-load-image     # EXIF, Canvas Convert etc
+jonblum:jquery-cropper            # jquery Cropper
+iamkevingreen:imagesloaded        # Images Loaded (wait for image)
 
 # =============================================================================
-# Hammer.js
+# Touchevent Packages
 # =============================================================================
 
 chriswessels:hammer
+
+
+# =============================================================================
+# Geo-location Packages
+# =============================================================================
+
 mdg:geolocation
