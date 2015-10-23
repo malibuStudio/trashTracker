@@ -45,6 +45,7 @@ infinitedg:gsap@1.16.0
 jquery@1.11.4
 launch-screen@1.0.4
 lbee:moment-helpers@1.2.0
+lepozepo:cloudinary@4.0.3
 livedata@1.0.15
 localstorage@1.0.5
 logging@1.0.8
