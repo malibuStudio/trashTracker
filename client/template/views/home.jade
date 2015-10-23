@@ -1,6 +1,36 @@
 template(name="home")
+  unless currentUser
+    .modal#modal-account
+      #register
+        button.back.goto-signin
+          i.icon.chevron.left
+        h1.register 회원가입
+        form#form-register.register
+          input(name="register-user" placeholder="유저")
+          input(name="register-password" type="password" placeholder="비밀번호")
+          button.btn.btn-primary.btn-register
+            | 회원가입
+        a.goto-signin(href="")
+            | 이미 회원이신가요?
+
+      #signin
+        button.back.close
+          i.icon.chevron.left
+        h1.signin 로그인
+        form#form-signin.signin
+          input(name="signin-user" placeholder="유저")
+          input(name="signin-password" type="password" placeholder="비밀번호")
+          button.btn.btn-primary.btn-signin
+            | 로그인
+        a.goto-register(href="")
+          | 아직 회원이 아니신가요?
+
+
   +HammerTouchArea(gestureMap=gestures)
     .page-container
+      // UI Components (Menu)
+      .page-ui-components#ui-wrapper
+        button.upload-photo +
       // Each Page
       .page-wrapper.active
         .page-main

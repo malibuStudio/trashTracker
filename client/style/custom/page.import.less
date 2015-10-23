@@ -13,8 +13,28 @@
   overflow-x: scroll;
 }
 
-// .page-wrapper
+// .page-ui-components
 // Wrap each page to viewport and enable scroll
+.page-ui-components {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  opacity: 0;
+
+  pointer-events: none;
+  z-index: 999;
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+// .page-wrapper
+// Wrap each page to viewport and enable vertical scroll
 .page-wrapper {
   position: absolute;
 
